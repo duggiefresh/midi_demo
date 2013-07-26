@@ -132,14 +132,14 @@ class Sequence
   end
 
   def <<(sequence)
-    @container.push *sequence
+    @container.push(*sequence)
   end
 
   def key=(key)
     key.push(*key.dup) until key.count >= self.count
 
-    self.zip(key).map do |note, key|
-      note.key = key
+    self.zip(key).map do |note, zip_key|
+      note.key = zip_key
     end
   end
 end
